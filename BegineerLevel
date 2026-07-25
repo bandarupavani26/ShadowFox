@@ -1,0 +1,272 @@
+Task1:Variables
+#1)
+pi = 22 / 7
+print("Value of pi:", pi)
+print("Data type:", type(pi))
+
+
+#2)
+#for = 4
+#print(for)
+#o/p:SyntaxError:invalid syntax
+#For is a reserved keyword,so it cannot be used as a variable name.
+
+
+#3)
+principal = float(input("Enter principal amount: "))
+rate = float(input("Enter rate of interest: "))
+time = 3
+
+#Calculating Simple Interest
+simple_interest = (principal * rate * time) / 100
+
+#Display result
+print("Simple Interest =", simple_interest)
+
+Task3:List
+# Create the initial Justice League list
+justice_league = ["Superman", "Batman", "Wonder Woman", "Flash", "Aquaman", "Green Lantern"]
+
+# Display the original list
+print("Original List:", justice_league)
+
+
+#1) Find the number of members
+print("Number of members:", len(justice_league))
+
+
+#2) Add Batgirl and Nightwing
+justice_league.append("Batgirl")
+justice_league.append("Nightwing")
+
+print("\nAfter adding Batgirl and Nightwing:")
+print(justice_league)
+
+
+#3) Move Wonder Woman to the beginning
+justice_league.remove("Wonder Woman")
+justice_league.insert(0, "Wonder Woman")
+
+print("\nWonder Woman moved to beginning:")
+print(justice_league)
+
+
+#4) Move Green Lantern between Aquaman and Flash
+# Remove Green Lantern from its current position
+justice_league.remove("Green Lantern")
+
+# Remove Aquaman from its current position
+justice_league.remove("Aquaman")
+
+# Find the position of Flash
+flash_index = justice_league.index("Flash")
+
+# Insert Aquaman before Flash
+justice_league.insert(flash_index, "Aquaman")
+
+# Insert Green Lantern between Aquaman and Flash
+justice_league.insert(flash_index + 1, "Green Lantern")
+
+print("\nGreen Lantern moved between Aquaman and Flash:")
+print(justice_league) 
+
+
+#5) Replace the old team with a new team
+justice_league = [
+    "Cyborg",
+    "Shazam",
+    "Hawkgirl",
+    "Martian Manhunter",
+    "Green Arrow"
+]
+
+print("\nNew Justice League:")
+print(justice_league)
+
+
+#6) Sort the list alphabetically
+justice_league.sort()
+
+print("\nSorted List:")
+print(justice_league)
+
+# Display the new leader (first member after sorting)
+print("\nNew Leader:", justice_league[0]
+
+
+Task4:If Condition
+#1) BMI Calculator
+height = float(input("Enter height in meters: "))
+weight = float(input("Enter weight in kilograms: "))
+
+bmi = weight / (height ** 2)
+
+print("BMI =", round(bmi, 2))
+
+if bmi >= 30:
+    print("Obesity")
+elif bmi >= 25:
+    print("Overweight")
+elif bmi >= 18.5:
+    print("Normal")
+else:
+    print("Underweight")
+
+
+#2)Find Country
+Australia = ["Sydney", "Melbourne", "Brisbane", "Perth"]
+UAE = ["Dubai", "Abu Dhabi", "Sharjah", "Ajman"]
+India = ["Mumbai", "Bangalore", "Chennai", "Delhi"]
+
+city = input("Enter city name: ")
+
+if city in Australia:
+    print(city, "is in Australia")
+elif city in UAE:
+    print(city, "is in UAE")
+elif city in India:
+    print(city, "is in India")
+else:
+    print("City not found")
+
+
+#3)Check Two Cities
+Australia = ["Sydney", "Melbourne", "Brisbane", "Perth"]
+UAE = ["Dubai", "Abu Dhabi", "Sharjah", "Ajman"]
+India = ["Mumbai", "Bangalore", "Chennai", "Delhi"]
+
+city1 = input("Enter first city: ")
+city2 = input("Enter second city: ")
+
+if city1 in Australia and city2 in Australia:
+    print("Both cities are in Australia")
+elif city1 in UAE and city2 in UAE:
+    print("Both cities are in UAE")
+elif city1 in India and city2 in India:
+    print("Both cities are in India")
+else:
+    print("They don't belong to the same country")
+
+
+Task5:ForLoop
+#1)Dice Simulation
+import random
+
+rolls = 20
+
+count_6 = 0
+count_1 = 0
+two_sixes = 0
+previous = 0
+
+print("Dice Rolls:")
+
+for i in range(rolls):
+    current = random.randint(1, 6)
+    print(current, end=" ")
+
+    if current == 6:
+        count_6 += 1
+
+    if current == 1:
+        count_1 += 1
+
+    if previous == 6 and current == 6:
+        two_sixes += 1
+
+    previous = current
+
+print("\n")
+print("Number of 6s:", count_6)
+print("Number of 1s:", count_1)
+print("Two consecutive 6s:", two_sixes)
+
+
+#2)Jumping Jacks
+completed = 0
+
+for i in range(10, 101, 10):
+    print("\nDo 10 jumping jacks.")
+
+    completed += 10
+
+    tired = input("Are you tired? (yes/no): ").lower()
+
+    if tired == "yes" or tired == "y":
+        skip = input("Do you want to skip the remaining sets? (yes/no): ").lower()
+
+        if skip == "yes" or skip == "y":
+            print("You completed a total of", completed, "jumping jacks.")
+            break
+        else:
+            print("Remaining:", 100 - completed)
+    else:
+        print("Remaining:", 100 - completed)
+
+else:
+    print("Congratulations! You completed the workout.")
+
+
+Task6:Dictionary
+#1)Friends List
+friends = ["Pavani", "Priya", "Anusha", "Teja", "Rahul"]
+
+friend_details = []
+
+for name in friends:
+    friend_details.append((name, len(name)))
+
+print("Friends List:")
+print(friends)
+
+print("\nName and Length:")
+print(friend_details)
+
+
+#2)Trip Expenses
+your_expenses = {
+    "Hotel": 1200,
+    "Food": 800,
+    "Transportation": 500,
+    "Attractions": 300,
+    "Miscellaneous": 200
+}
+
+partner_expenses = {
+    "Hotel": 1000,
+    "Food": 900,
+    "Transportation": 600,
+    "Attractions": 400,
+    "Miscellaneous": 150
+}
+
+your_total = sum(your_expenses.values())
+partner_total = sum(partner_expenses.values())
+
+print("Your Total Expense:", your_total)
+print("Partner Total Expense:", partner_total)
+
+if your_total > partner_total:
+    print("You spent more money.")
+elif partner_total > your_total:
+    print("Your partner spent more money.")
+else:
+    print("Both spent the same amount.")
+
+max_difference = 0
+category = ""
+
+for item in your_expenses:
+    difference = abs(your_expenses[item] - partner_expenses[item])
+
+    if difference > max_difference:
+        max_difference = difference
+        category = item
+
+print("Highest Difference Category:", category)
+print("Difference:", max_difference)
+
+
+
+
+
